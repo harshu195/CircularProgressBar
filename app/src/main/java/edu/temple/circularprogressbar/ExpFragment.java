@@ -11,15 +11,12 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-
 public class ExpFragment extends Fragment {
-
     TextView tv;
     ProgressBar pBar;
     int pStatus = 0;
     int endExp =0 ;
     private Handler handler = new Handler();
-
     public ExpFragment() {
         // Required empty public constructor
     }
@@ -27,7 +24,6 @@ public class ExpFragment extends Fragment {
         //Getting value from the function call and setting it as a End point
         endExp = etExp;
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

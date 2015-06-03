@@ -24,7 +24,6 @@ public class LevelFragment extends Fragment {
         //Getting value from the function call and setting it as a End point
         endLevel = etLevel;
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
