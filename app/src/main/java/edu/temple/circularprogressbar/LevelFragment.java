@@ -22,7 +22,7 @@ public class LevelFragment extends Fragment {
     }
     public LevelFragment(Integer etLevel) {
         //Getting value from the function call and setting it as a End point
-        endLevel = etLevel;
+        endLevel = etLevel*10;
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,7 +33,7 @@ public class LevelFragment extends Fragment {
         while (pStatus <= endLevel) {
             pBar.setProgress(pStatus);
             pBar.setSecondaryProgress(100);
-            tv.setText(pStatus + "/" + pBar.getMax());
+            tv.setText(endLevel/10 + "/" +"10");
             pStatus++;
         }
         return v;

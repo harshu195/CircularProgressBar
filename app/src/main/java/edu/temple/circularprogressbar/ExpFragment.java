@@ -30,12 +30,35 @@ public class ExpFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_exp, container, false);
         tv = (TextView) v.findViewById(R.id.textView1);
         pBar = (ProgressBar) v.findViewById(R.id.progressBar1);
-        while (pStatus <= endExp) {
-            pBar.setProgress(pStatus);
-            pBar.setSecondaryProgress(100);
-            tv.setText(pStatus + "/" + pBar.getMax());
-            pStatus++;
-        }
+
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                // TODO Auto-generated method stub
+                while (pStatus <= endExp) {
+
+                    handler.post(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // TODO Auto-generated method stub
+                            pBar.setProgress(pStatus);
+                            pBar.setSecondaryProgress(pStatus + 2);
+                            tv.setText(pStatus + "/" + pBar.getMax());
+                        }
+                    });
+                    try {
+                        // Sleep for 25 milliseconds.
+                        // Just to display the progress slowly
+                        Thread.sleep(25);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    pStatus++;
+                }
+            }
+        }).start();
         return v;
     }
 }
